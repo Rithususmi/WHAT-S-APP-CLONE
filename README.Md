@@ -23,3 +23,13 @@ export const myQueryFunction = query({
     return documents;
   },
 });
+const mutation = useMutation(api.functions.myMutationFunction);
+function handleButtonPress() {
+  // fire and forget, the most common way to use mutations
+  mutation({ first: "Hello!", second: "me" });
+  // OR
+  // use the result once the mutation has completed
+  mutation({ first: "Hello!", second: "me" }).then((result) =>
+    console.log(result)
+  );
+}
